@@ -2,96 +2,7 @@
 
 @section('content')
 
-  <div class="row">
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
-                <h5 class="font-weight-bolder mb-0">
-                  $53,000
-                  <span class="text-success text-sm font-weight-bolder">+55%</span>
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
-                <h5 class="font-weight-bolder mb-0">
-                  2,300
-                  <span class="text-success text-sm font-weight-bolder">+3%</span>
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
-                <h5 class="font-weight-bolder mb-0">
-                  +3,462
-                  <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
-                <h5 class="font-weight-bolder mb-0">
-                  $103,430
-                  <span class="text-success text-sm font-weight-bolder">+5%</span>
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <div class="row mt-4">
     <div class="col-lg-7">
       <div class="card">
@@ -99,7 +10,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Tren Penumpang per Kuartal</h5>
+                <h5 class="font-weight-bolder">Tren Debarkasi Penumpang per Kuartal</h5>
                 <select id="filterTahun" class="form-select w-25 mb-3">
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -118,7 +29,7 @@
           <div class="row">
             <div class="col-lg-12"> <!-- ubah dari col-lg-6 ke col-lg-12 -->
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Distribusi Penumpang per Tahun</h5>
+                <h5 class="font-weight-bolder">Distribusi Debarkasi Penumpang per Tahun</h5>
                 <div id="chartStackedPercent" style="width:100%; height:350px;"></div>
               </div>
             </div>
@@ -129,30 +40,54 @@
 
   </div>
   <div class="row mt-4">
+
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="d-flex flex-column h-100">
+                <h5 class="font-weight-bolder">Jumlah Kecelakaan Per Tahun</h5>
+                <div id="chartKecelakaanTahunan" style="width:100%; height:400px;"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-lg-7">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="d-flex flex-column h-100">
+                <h5 class="font-weight-bolder">Top 5 Kabupaten/Kota dengan Jumlah Korban Laka Lantas Meninggal Terbanyak</h5>
+                <select id="tahunMeninggal" onchange="loadChartTopMeninggal(this.value)" class="form-select w-25 mb-3">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                </select>
+                <div id="chartTopMeninggal" style="width:100%; height:400px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="col-lg-5">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Heatmap Musiman Penumpang</h5>
-                  <div id="chartHeatmap" style="width:100%; height:400px;"></div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-7">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
+                <h5 class="font-weight-bolder">Top 5 Kabupaten/Kota berdasarkan Kerugian Materiil</h5>
+                <select id="filterTahunKerugian" class="form-select w-25 mb-3">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                </select>
+                <div id="chartKerugian" style="width:100%; height:400px;"></div>
               </div>
             </div>
           </div>
@@ -161,62 +96,33 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-lg-7">
+    <div class="col-lg-4">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
+                <h5 class="font-weight-bolder">Jumlah Kendaraan Roda Empat Berdasarkan Jenisnya</h5>
+                <div id="chartLineKendaraan" style="width:100%; height:350px;"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-8">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-lg-7">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-5">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
+                <h5 class="font-weight-bolder">Top 5 Kabupaten/Kota Paling Padat Motor</h5>
+                  <select id="tahunFilter" onchange="loadChartTopKepadatanMotor(this.value)" class="form-select w-25 mb-3">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                  </select>
+                  <!-- Tempat chart -->
+                  <div id="chartTopKepadatanMotor"  style="width:100%; height:350px;"></div>
               </div>
             </div>
           </div>
@@ -225,29 +131,14 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-lg-7">
+    <div class="col-lg-12">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-5">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Judul grafik</h5>
-                <p class="mb-5">Keterangan.</p>
+                <h5 class="font-weight-bolder">Tren Rasio Kecelakaan per Km per Kabupaten/Kota</h5>
+                <div id="chartMultipleRasio" style="width:100%; height:350px;"></div>
                 </a>
               </div>
             </div>
@@ -290,13 +181,7 @@
           },
           yaxis: { 
             title: { 
-              text: "Jumlah Penumpang",
-              style: {
-                fontSize: '13px',
-                fontWeight: 'bold',
-                fontFamily: 'Open Sans, Arial, sans-serif',
-                color: '#1a1a1a'
-              }
+              text: "Jumlah Penumpang"
             },
             labels: {
               style: {
@@ -369,46 +254,207 @@
   }
   loadStackedPercent();
 
-  function loadHeatmap() {
-    fetch(`/api/chart-heatmap`)
+  function loadKecelakaanChart() {
+    fetch("/api/chart-kecelakaan-tahunan")
       .then(res => res.json())
-      .then(series => {
+      .then(res => {
         var options = {
           chart: {
-            type: 'heatmap',
-            height: 400
+            type: 'bar',
+            height: 500
           },
-          series: series,  // langsung array JSON
-          dataLabels: {
-            enabled: false
-          },
-          colors: ["#2c2c54"],
-          xaxis: {
-            title: {
-              text: "Bulan",
-              style: { fontSize: '14px', fontWeight: 'bold' }
+          colors: ["#2c2c54",  "#F012BE", ],          
+          plotOptions: {
+            bar: {
+              horizontal: false,
+              columnWidth: '65%',
             }
+          },
+          dataLabels: { enabled: false },
+          stroke: { show: true, width: 2, colors: ['transparent'] },
+          xaxis: {
+            categories: res.categories,
+            title: { text: "Kabupaten/Kota" }
           },
           yaxis: {
-            title: {
-              text: "Tahun",
-              style: { fontSize: '14px', fontWeight: 'bold' }
-            }
+            title: { text: "Jumlah Kecelakaan" },
+            labels: { formatter: val => val.toLocaleString() }
           },
           tooltip: {
-            y: {
-              formatter: val => val.toLocaleString() + " penumpang"
-            }
-          }
+            y: { formatter: val => val.toLocaleString() }
+          },
+          legend: { position: 'top' },
+          series: res.series
         };
 
-        document.querySelector("#chartHeatmap").innerHTML = "";
-        var chart = new ApexCharts(document.querySelector("#chartHeatmap"), options);
+        document.querySelector("#chartKecelakaanTahunan").innerHTML = "";
+        var chart = new ApexCharts(document.querySelector("#chartKecelakaanTahunan"), options);
         chart.render();
       });
   }
 
-  loadHeatmap();
+  // Panggil saat halaman load
+  loadKecelakaanChart();
+  function loadChartTopMeninggal(tahun) {
+    fetch(`/api/chart-top-meninggal/${tahun}`)
+      .then(r => r.json())
+      .then(res => {
+        const options = {
+          chart: { type: 'bar', height: 350 },
+          plotOptions: { bar: { horizontal: true, distributed: true } },
+          colors: ["#9b2dfc", "#F012BE", "#495057", "#2c2c54", "#9b2dfc"],
+          dataLabels: { enabled: false },              // hilangkan angka di batang
+          series: res.series,
+          xaxis: {
+            categories: res.categories,
+            title: { text: "Jumlah Meninggal" }
+          },
+          tooltip: {
+            y: { formatter: v => Number(v).toLocaleString('id-ID') + " jiwa" }
+          }
+        };
+
+        document.querySelector("#chartTopMeninggal").innerHTML = "";
+        new ApexCharts(document.querySelector("#chartTopMeninggal"), options).render();
+      })
+      .catch(err => console.error(err));
+  }
+
+  // load default
+  loadChartTopMeninggal(document.getElementById('tahunMeninggal').value);
+  function loadChartKerugian(tahun) {
+    fetch(`/api/chart-top-kerugian/${tahun}`)
+      .then(res => res.json())
+      .then(res => {
+        var options = {
+          chart: { type: 'bar', height: 350 },
+          plotOptions: {
+            bar: { horizontal: true, distributed: true }
+          },
+          dataLabels: {
+            enabled: false   // << ini kunci biar angka di dalam bar hilang
+          },
+          colors: ["#2c2c54", "#9b2dfc", "#F012BE", "#495057", "#9b2dfc"],
+          series: res.series,
+          xaxis: {
+            categories: res.categories,
+            title: { text: "Kerugian (Rp)" }
+          },
+          tooltip: {
+            y: {
+              formatter: val => "Rp " + val.toLocaleString()
+            }
+          }
+        };
+
+        document.querySelector("#chartKerugian").innerHTML = "";
+        var chart = new ApexCharts(document.querySelector("#chartKerugian"), options);
+        chart.render();
+      });
+  }
+
+  // load default tahun
+  loadChartKerugian(2020);
+
+  // filter event
+  document.getElementById("filterTahunKerugian").addEventListener("change", function() {
+    loadChartKerugian(this.value);
+  });
+
+  function loadChartLineKendaraan() {
+    fetch(`/api/chart-line-kendaraan`)
+      .then(res => res.json())
+      .then(res => {
+        var options = {
+          chart: { type: 'line', height: 350 },
+          series: res.series,
+          xaxis: {
+            categories: res.categories,
+            title: { text: "Tahun" }
+          },
+          yaxis: {
+            title: { text: "Jumlah Kendaraan" }
+          },
+          stroke: { curve: 'smooth' },
+          colors: ["#2c2c54", "#9b2dfc", "#F012BE", "#495057"]
+        };
+
+        document.querySelector("#chartLineKendaraan").innerHTML = "";
+        var chart = new ApexCharts(document.querySelector("#chartLineKendaraan"), options);
+        chart.render();
+      });
+  }
+
+  loadChartLineKendaraan();
+    function loadChartTopKepadatanMotor(tahun) {
+      fetch(`/api/chart-top-kepadatan-motor/${tahun}`)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res); // DEBUG lihat JSON
+          var options = {
+            chart: { type: 'bar', height: 350 },
+            plotOptions: { bar: { horizontal: true, distributed: true } },
+            colors: ["#2c2c54", "#9b2dfc", "#F012BE", "#495057", "#9b2dfc"],
+            series: res.series,
+            xaxis: {
+              categories: res.categories,
+              title: { text: "Kabupaten/Kota" }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            tooltip: {
+              y: {
+                formatter: val => val.toFixed(2) + " kendaraan/km (Sepeda Motor)"
+              }
+            }
+          };
+
+          document.querySelector("#chartTopKepadatanMotor").innerHTML = "";
+          var chart = new ApexCharts(document.querySelector("#chartTopKepadatanMotor"), options);
+          chart.render();
+        })
+        .catch(err => console.error(err));
+    }
+
+    // jalankan default tahun
+    loadChartTopKepadatanMotor(2020);
+  function loadChartMultipleRasio() {
+    fetch(`/api/chart-multiple-rasio`)
+      .then(res => res.json())
+      .then(res => {
+        var options = {
+          chart: { type: 'bar', height: 400 },
+          plotOptions: {
+            bar: { horizontal: false, columnWidth: '50%' }
+          },
+          dataLabels: { enabled: false },
+          series: res.series,
+          xaxis: {
+            categories: res.categories,
+            title: { text: "Kabupaten/Kota" }
+          },
+          yaxis: {
+            labels: {
+              formatter: function (val) {
+                return val.toFixed(2); // bulatkan jadi integer
+              }
+            },
+            title: {
+              text: "Rasio Kecelakaan per Km"
+            }
+          },
+          colors: ["#495057", "#9b2dfc"], // 2 warna untuk 2020, 2021
+          legend: { position: 'top' }
+        };
+
+        document.querySelector("#chartMultipleRasio").innerHTML = "";
+        var chart = new ApexCharts(document.querySelector("#chartMultipleRasio"), options);
+        chart.render();
+      });
+  }
+
+  loadChartMultipleRasio();
 </script>
 
 

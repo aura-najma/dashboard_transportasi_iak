@@ -7,6 +7,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\TransportasiController;
+use App\Http\Controllers\KecelakaanController;
+use App\Http\Controllers\KepadatanController;
+use App\Http\Controllers\RisikoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -36,11 +39,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/api/chart-heatmap', [TransportasiController::class, 'chartHeatmap']);
 
 	//fakta kecelakaan
+	Route::get('/api/chart-kecelakaan-tahunan', [App\Http\Controllers\KecelakaanController::class, 'chartKecelakaanTahunan']);
+	Route::get('/api/chart-top-meninggal/{tahun}', [KecelakaanController::class, 'apiTopMeninggal']);
+	Route::get('/api/chart-top-kerugian/{tahun}', [KecelakaanController::class, 'chartTopKerugian']);
 
 
 	//fakta kepadatan
+	Route::get('/api/chart-top-kepadatan-motor/{tahun}', [KepadatanController::class, 'apiTopKepadatanMotor']);
+	Route::get('/api/chart-line-kendaraan', [KepadatanController::class, 'apiLineChart']);
 
 	// fakta risiko
+	Route::get('/api/chart-multiple-rasio', [RisikoController::class, 'apiMultipleRasio']);
 
 	Route::get('dashboard_asli', function () {
 		return view('dashboard_asli');
