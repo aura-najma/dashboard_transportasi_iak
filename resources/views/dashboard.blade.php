@@ -48,7 +48,7 @@
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
                 <h5 class="font-weight-bolder">Jumlah Kecelakaan Per Tahun</h5>
-                <div id="chartKecelakaanTahunan" style="width:100%; height:400px;"></div>
+                <div id="chartKecelakaanTahunan" style="width:100%; height:500px;"></div>
                 </a>
               </div>
             </div>
@@ -102,7 +102,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Jumlah Kendaraan Roda Empat Berdasarkan Jenisnya</h5>
+                <h5 class="font-weight-bolder">Jumlah Mobil Penumpang, Bus, dan Truk per Tahun</h5>
                 <div id="chartLineKendaraan" style="width:100%; height:350px;"></div>
               </div>
             </div>
@@ -116,7 +116,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
-                <h5 class="font-weight-bolder">Top 5 Kabupaten/Kota Paling Padat Motor</h5>
+                <h5 class="font-weight-bolder">Top 5 Kabupaten/Kota dengan Rasio Sepeda Motor per Km Jalan Tertinggi</h5>
                   <select id="tahunFilter" onchange="loadChartTopKepadatanMotor(this.value)" class="form-select w-25 mb-3">
                     <option value="2020">2020</option>
                     <option value="2021">2021</option>
@@ -138,7 +138,7 @@
             <div class="col-lg-12">
               <div class="d-flex flex-column h-100">
                 <h5 class="font-weight-bolder">Tren Rasio Kecelakaan per Km per Kabupaten/Kota</h5>
-                <div id="chartMultipleRasio" style="width:100%; height:350px;"></div>
+                <div id="chartMultipleRasio" style="width:100%; height:425px;"></div>
                 </a>
               </div>
             </div>
@@ -338,11 +338,13 @@
           series: res.series,
           xaxis: {
             categories: res.categories,
-            title: { text: "Kerugian (Rp)" }
+            title: { text: "Kerugian (juta Rp)" }
           },
           tooltip: {
             y: {
-              formatter: val => "Rp " + val.toLocaleString()
+              formatter: val => "Rp " + Number(val).toLocaleString('id-ID', {
+                  maximumFractionDigits: 2
+              }) + " juta"
             }
           }
         };
@@ -398,7 +400,7 @@
             series: res.series,
             xaxis: {
               categories: res.categories,
-              title: { text: "Kabupaten/Kota" }
+              title: { text: "Sepeda motor per km per jalan" }
             },
             dataLabels: {
               enabled: false
